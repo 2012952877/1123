@@ -1,0 +1,61 @@
+<configuration debug="true">
+    <jmxConfigurator/>
+
+    <!-- 根据需要自行决定要不要加入，打到console控制台，可选，-->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>debug</level>
+        </filter>
+        <layout class="ch.qos.logback.classic.PatternLayout">
+            <pattern>%date [%thread] %-5level %logger{80}- %msg%n</pattern>
+        </layout>
+    </appender>
+
+
+
+    <appender name="file" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>./log/speech-info.log</file>
+        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
+            <level>info</level>
+        </filter>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <FileNamePattern>./log/speech-info-%d{yyyy-MM-dd}-%i.log</FileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>200MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <MaxHistory>10</MaxHistory>
+        </rollingPolicy>
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+            <pattern>
+                [%d{yyyy-MM-dd HH:mm:ss.SSS}] [%thread] [%level] %logger:%L  -> %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- 在不同环境中引入不同的Appender -->
+
+    <springProfile name="dev,fat">
+        <root>
+            <level value="info"/>
+            <appender-ref ref="stdout"/>
+            <appender-ref ref="file"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="pre">
+        <root>
+            <level value="debug"/>
+            <appender-ref ref="stdout"/>
+            <appender-ref ref="file"/>
+        </root>
+    </springProfile>
+
+    <springProfile name="pro">
+        <root>
+            <level value="info"/>
+            <appender-ref ref="stdout"/>
+            <appender-ref ref="file"/>
+        </root>
+    </springProfile>
+
+</configuration>
