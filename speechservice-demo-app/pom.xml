@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.microsoft.speech</groupId>
-	<artifactId>xiaomi-speechdemo-app</artifactId>
+	<artifactId>speechdemo-app</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
-	<name>xiaomi-speechdemo-app</name>
-	<description>Xiaomi Speech service demo project for Spring Boot</description>
+	<name>speechdemo-app</name>
+	<description>Speech service demo project for Spring Boot</description>
 
 	<properties>
 		<java.version>1.8</java.version>

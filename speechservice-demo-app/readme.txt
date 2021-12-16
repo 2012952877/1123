@@ -6,7 +6,7 @@ mvn clean compile package -Pdev -DskipTests
 2. 运行spring boot 程序:
 java -jar ${workdir}/target/${jar} --spring.profiles.active=fat --server.port=8090
 如shell命令行下 （指定了一个服务服务port）
-java -jar target/xiaomi-speechdemo-app-1.0.0-SNAPSHOT.jar --server.port=8090
+java -jar target/<>-speechdemo-app-1.0.0-SNAPSHOT.jar --server.port=8090
 或直接在idea 开发环境中运行
 
 3.接口调用说明
@@ -16,7 +16,7 @@ post
 http://localhost:8090/api/speech/wav2text
 reqeust:
 指定一个wav文件
-{"filePath":"C:\\Users\\zhadeng\\deng\\msWork\\xiaomi-speechservice-demo-app\\wavSample\\myVoiceIsMyPassportVerifyMe01.wav"}
+{"filePath":"C:\\Users\\zhadeng\\deng\\msWork\\<>-speechservice-demo-app\\wavSample\\myVoiceIsMyPassportVerifyMe01.wav"}
 
 3.2) 语音合成文本接口:   api/speech/recognitionWithLangAsync
 post
@@ -73,7 +73,7 @@ SchedulerCheckTask, 暂设置为每1分钟检查一次，可视情况加以参�
 │   │   │   └───com
 │   │   │       └───microsoft
 │   │   │           └───speech
-│   │   │               └───xiaomi
+│   │   │               └───<>
 │   │   │                   ├───config
 │   │   │                   ├───controller
 │   │   │                   ├───dto
@@ -90,7 +90,7 @@ SchedulerCheckTask, 暂设置为每1分钟检查一次，可视情况加以参�
 │           └───com
 │               └───microsoft
 │                   └───speech
-│                       └───xiaomi
+│                       └───<>
 
 wavSample  目录下含有两个测试用的wav文件.
 
